@@ -67,10 +67,6 @@ namespace GUI
             txtNACH.Text = old_from;//Umdrehung
         }
 
-        private void txtVON_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnSuche_Click(object sender, EventArgs e)
         {
@@ -99,25 +95,6 @@ namespace GUI
             }
         }
 
-        private void txtVON_DropDown(object sender, EventArgs e)
-        {
-            txtVON.Items.Clear();
-            Stations stations = tp.GetStations(txtVON.Text);
-            foreach (Station station in stations.StationList)
-            {
-                txtVON.Items.Add(station.Name);
-            }
-        }
-
-        private void txtNACH_DropDown(object sender, EventArgs e)
-        {
-            txtNACH.Items.Clear();
-            Stations stations = tp.GetStations(txtNACH.Text);
-            foreach (Station station in stations.StationList)
-            {
-                txtNACH.Items.Add(station.Name);
-            }
-        }
 
         private void btnSS_Click(object sender, EventArgs e)
         {
@@ -153,16 +130,6 @@ namespace GUI
             }
         }
 
-        private void txtSS_DropDown(object sender, EventArgs e)
-        {
-            txtSS.Items.Clear(); 
-            Stations stations = tp.GetStations(txtSS.Text);
-            foreach (Station station in stations.StationList)
-            {
-                txtSS.Items.Add(station.Name);
-            }
-        }
-
         private void txtKA_DropDown(object sender, EventArgs e)
         {
             txtKA.Items.Clear();
@@ -181,6 +148,61 @@ namespace GUI
                 var coordinates = stationList[0].Coordinate;
                 string googleUrl = "https://www.google.ch/maps/?q=loc:" + coordinates.XCoordinate + "+" + coordinates.YCoordinate;
                 this.Karte.Navigate(googleUrl);
+            }
+        }
+        private void txtVON_KeyUp(object sender, KeyEventArgs e)
+        {
+            var selectionStart = txtVON.SelectionStart;
+            var selectionLength = txtVON.SelectedText.Length;
+            txtVON.Items.Clear();
+            txtVON.Select(selectionStart, selectionLength);
+            txtVON.DroppedDown = true;
+            Stations stations = tp.GetStations(txtVON.Text);
+            foreach (Station station in stations.StationList)
+            {
+                txtVON.Items.Add(station.Name);
+            }
+        }
+
+        private void txtNACH_KeyUp(object sender, KeyEventArgs e)
+        {
+            var selectionStart = txtNACH.SelectionStart;
+            var selectionLength = txtNACH.SelectedText.Length;
+            txtNACH.Items.Clear();
+            txtNACH.Select(selectionStart, selectionLength);
+            txtNACH.DroppedDown = true;
+            Stations stations = tp.GetStations(txtNACH.Text);
+            foreach (Station station in stations.StationList)
+            {
+                txtNACH.Items.Add(station.Name);
+            }
+        }
+
+        private void txtSS_KeyUp(object sender, KeyEventArgs e)
+        {
+            var selectionStart = txtSS.SelectionStart;
+            var selectionLength = txtSS.SelectedText.Length;
+            txtSS.Items.Clear();
+            txtSS.Select(selectionStart, selectionLength);
+            txtSS.DroppedDown = true;
+            Stations stations = tp.GetStations(txtSS.Text);
+            foreach (Station station in stations.StationList)
+            {
+                txtSS.Items.Add(station.Name);
+            }
+        }
+
+        private void txtKA_KeyUp(object sender, KeyEventArgs e)
+        {
+            var selectionStart = txtKA.SelectionStart;
+            var selectionLength = txtKA.SelectedText.Length;
+            txtKA.Items.Clear();
+            txtKA.Select(selectionStart, selectionLength);
+            txtKA.DroppedDown = true;
+            Stations stations = tp.GetStations(txtKA.Text);
+            foreach (Station station in stations.StationList)
+            {
+                txtKA.Items.Add(station.Name);
             }
         }
     }

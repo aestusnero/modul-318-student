@@ -33,11 +33,17 @@
             this.btnA = new System.Windows.Forms.Button();
             this.PV = new System.Windows.Forms.Panel();
             this.VSG = new System.Windows.Forms.GroupBox();
-            this.txtVON = new System.Windows.Forms.ComboBox();
             this.txtNACH = new System.Windows.Forms.ComboBox();
+            this.txtVON = new System.Windows.Forms.ComboBox();
             this.btnSuche = new System.Windows.Forms.Button();
             this.btnReverse = new System.Windows.Forms.Button();
             this.DGV = new System.Windows.Forms.DataGridView();
+            this.Von = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dauer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Abfahrt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ankunft = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gleis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Schliessen = new System.Windows.Forms.Button();
             this.STG = new System.Windows.Forms.Panel();
             this.SSG = new System.Windows.Forms.GroupBox();
@@ -53,12 +59,14 @@
             this.txtKA = new System.Windows.Forms.ComboBox();
             this.btnKG = new System.Windows.Forms.Button();
             this.btnVB = new System.Windows.Forms.Button();
-            this.Von = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nach = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dauer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Abfahrt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ankunft = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Gleis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DATUM = new System.Windows.Forms.DateTimePicker();
+            this.ZEIT = new System.Windows.Forms.DateTimePicker();
+            this.LD = new System.Windows.Forms.Label();
+            this.LZ = new System.Windows.Forms.Label();
+            this.LV = new System.Windows.Forms.Label();
+            this.LN = new System.Windows.Forms.Label();
+            this.RAB = new System.Windows.Forms.RadioButton();
+            this.RAN = new System.Windows.Forms.RadioButton();
             this.PV.SuspendLayout();
             this.VSG.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
@@ -71,7 +79,7 @@
             // 
             // btnK
             // 
-            this.btnK.Location = new System.Drawing.Point(190, 524);
+            this.btnK.Location = new System.Drawing.Point(194, 524);
             this.btnK.Name = "btnK";
             this.btnK.Size = new System.Drawing.Size(85, 25);
             this.btnK.TabIndex = 0;
@@ -81,7 +89,7 @@
             // 
             // btnA
             // 
-            this.btnA.Location = new System.Drawing.Point(99, 524);
+            this.btnA.Location = new System.Drawing.Point(103, 524);
             this.btnA.Name = "btnA";
             this.btnA.Size = new System.Drawing.Size(85, 25);
             this.btnA.TabIndex = 1;
@@ -101,8 +109,16 @@
             // 
             // VSG
             // 
-            this.VSG.Controls.Add(this.txtVON);
+            this.VSG.Controls.Add(this.RAN);
+            this.VSG.Controls.Add(this.RAB);
+            this.VSG.Controls.Add(this.LN);
+            this.VSG.Controls.Add(this.LV);
+            this.VSG.Controls.Add(this.LZ);
+            this.VSG.Controls.Add(this.LD);
+            this.VSG.Controls.Add(this.ZEIT);
+            this.VSG.Controls.Add(this.DATUM);
             this.VSG.Controls.Add(this.txtNACH);
+            this.VSG.Controls.Add(this.txtVON);
             this.VSG.Controls.Add(this.btnSuche);
             this.VSG.Controls.Add(this.btnReverse);
             this.VSG.Location = new System.Drawing.Point(3, 3);
@@ -112,30 +128,29 @@
             this.VSG.TabStop = false;
             this.VSG.Text = "Verbindungen";
             // 
-            // txtVON
-            // 
-            this.txtVON.FormattingEnabled = true;
-            this.txtVON.Location = new System.Drawing.Point(6, 24);
-            this.txtVON.Name = "txtVON";
-            this.txtVON.Size = new System.Drawing.Size(163, 21);
-            this.txtVON.TabIndex = 1;
-            this.txtVON.DropDown += new System.EventHandler(this.txtVON_DropDown);
-            this.txtVON.SelectedIndexChanged += new System.EventHandler(this.txtVON_SelectedIndexChanged);
-            // 
             // txtNACH
             // 
             this.txtNACH.FormattingEnabled = true;
-            this.txtNACH.Location = new System.Drawing.Point(6, 51);
+            this.txtNACH.Location = new System.Drawing.Point(52, 52);
             this.txtNACH.Name = "txtNACH";
-            this.txtNACH.Size = new System.Drawing.Size(163, 21);
-            this.txtNACH.TabIndex = 0;
-            this.txtNACH.DropDown += new System.EventHandler(this.txtNACH_DropDown);
+            this.txtNACH.Size = new System.Drawing.Size(113, 21);
+            this.txtNACH.TabIndex = 6;
+            this.txtNACH.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNACH_KeyUp);
+            // 
+            // txtVON
+            // 
+            this.txtVON.FormattingEnabled = true;
+            this.txtVON.Location = new System.Drawing.Point(52, 25);
+            this.txtVON.Name = "txtVON";
+            this.txtVON.Size = new System.Drawing.Size(113, 21);
+            this.txtVON.TabIndex = 5;
+            this.txtVON.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtVON_KeyUp);
             // 
             // btnSuche
             // 
-            this.btnSuche.Location = new System.Drawing.Point(412, 24);
+            this.btnSuche.Location = new System.Drawing.Point(427, 23);
             this.btnSuche.Name = "btnSuche";
-            this.btnSuche.Size = new System.Drawing.Size(86, 48);
+            this.btnSuche.Size = new System.Drawing.Size(71, 49);
             this.btnSuche.TabIndex = 2;
             this.btnSuche.Text = "Verbindung Suchen";
             this.btnSuche.UseVisualStyleBackColor = true;
@@ -146,7 +161,7 @@
             this.btnReverse.BackColor = System.Drawing.Color.Transparent;
             this.btnReverse.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnReverse.BackgroundImage")));
             this.btnReverse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnReverse.Location = new System.Drawing.Point(175, 24);
+            this.btnReverse.Location = new System.Drawing.Point(171, 25);
             this.btnReverse.Name = "btnReverse";
             this.btnReverse.Size = new System.Drawing.Size(48, 48);
             this.btnReverse.TabIndex = 4;
@@ -170,6 +185,50 @@
             this.DGV.Size = new System.Drawing.Size(504, 422);
             this.DGV.TabIndex = 4;
             this.DGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Von
+            // 
+            this.Von.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Von.FillWeight = 68.21066F;
+            this.Von.HeaderText = "Von";
+            this.Von.Name = "Von";
+            this.Von.Width = 150;
+            // 
+            // Nach
+            // 
+            this.Nach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Nach.FillWeight = 523.858F;
+            this.Nach.HeaderText = "Nach";
+            this.Nach.Name = "Nach";
+            this.Nach.Width = 150;
+            // 
+            // Dauer
+            // 
+            this.Dauer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Dauer.FillWeight = 1.982869F;
+            this.Dauer.HeaderText = "Dauer";
+            this.Dauer.Name = "Dauer";
+            // 
+            // Abfahrt
+            // 
+            this.Abfahrt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Abfahrt.FillWeight = 1.982869F;
+            this.Abfahrt.HeaderText = "Abfahrt";
+            this.Abfahrt.Name = "Abfahrt";
+            // 
+            // Ankunft
+            // 
+            this.Ankunft.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ankunft.FillWeight = 1.982869F;
+            this.Ankunft.HeaderText = "Ankunft";
+            this.Ankunft.Name = "Ankunft";
+            // 
+            // Gleis
+            // 
+            this.Gleis.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Gleis.FillWeight = 1.982869F;
+            this.Gleis.HeaderText = "Gleis";
+            this.Gleis.Name = "Gleis";
             // 
             // Schliessen
             // 
@@ -210,7 +269,7 @@
             this.txtSS.Name = "txtSS";
             this.txtSS.Size = new System.Drawing.Size(163, 21);
             this.txtSS.TabIndex = 1;
-            this.txtSS.DropDown += new System.EventHandler(this.txtSS_DropDown);
+            this.txtSS.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSS_KeyUp);
             // 
             // btnSS
             // 
@@ -292,7 +351,7 @@
             this.txtKA.Name = "txtKA";
             this.txtKA.Size = new System.Drawing.Size(163, 21);
             this.txtKA.TabIndex = 1;
-            this.txtKA.DropDown += new System.EventHandler(this.txtKA_DropDown);
+            this.txtKA.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtKA_KeyUp);
             // 
             // btnKG
             // 
@@ -314,49 +373,82 @@
             this.btnVB.UseVisualStyleBackColor = true;
             this.btnVB.Click += new System.EventHandler(this.btnVB_Click);
             // 
-            // Von
+            // DATUM
             // 
-            this.Von.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Von.FillWeight = 68.21066F;
-            this.Von.HeaderText = "Von";
-            this.Von.Name = "Von";
-            this.Von.Width = 150;
+            this.DATUM.CustomFormat = "dd.MM.yyyy";
+            this.DATUM.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DATUM.Location = new System.Drawing.Point(269, 23);
+            this.DATUM.Name = "DATUM";
+            this.DATUM.Size = new System.Drawing.Size(87, 20);
+            this.DATUM.TabIndex = 7;
             // 
-            // Nach
+            // ZEIT
             // 
-            this.Nach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Nach.FillWeight = 523.858F;
-            this.Nach.HeaderText = "Nach";
-            this.Nach.Name = "Nach";
-            this.Nach.Width = 150;
+            this.ZEIT.CustomFormat = "HH.mm";
+            this.ZEIT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.ZEIT.Location = new System.Drawing.Point(269, 52);
+            this.ZEIT.Name = "ZEIT";
+            this.ZEIT.ShowUpDown = true;
+            this.ZEIT.Size = new System.Drawing.Size(87, 20);
+            this.ZEIT.TabIndex = 8;
             // 
-            // Dauer
+            // LD
             // 
-            this.Dauer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Dauer.FillWeight = 1.982869F;
-            this.Dauer.HeaderText = "Dauer";
-            this.Dauer.Name = "Dauer";
+            this.LD.AutoSize = true;
+            this.LD.Location = new System.Drawing.Point(225, 27);
+            this.LD.Name = "LD";
+            this.LD.Size = new System.Drawing.Size(38, 13);
+            this.LD.TabIndex = 9;
+            this.LD.Text = "Datum";
             // 
-            // Abfahrt
+            // LZ
             // 
-            this.Abfahrt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Abfahrt.FillWeight = 1.982869F;
-            this.Abfahrt.HeaderText = "Abfahrt";
-            this.Abfahrt.Name = "Abfahrt";
+            this.LZ.AutoSize = true;
+            this.LZ.Location = new System.Drawing.Point(238, 54);
+            this.LZ.Name = "LZ";
+            this.LZ.Size = new System.Drawing.Size(25, 13);
+            this.LZ.TabIndex = 10;
+            this.LZ.Text = "Zeit";
             // 
-            // Ankunft
+            // LV
             // 
-            this.Ankunft.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ankunft.FillWeight = 1.982869F;
-            this.Ankunft.HeaderText = "Ankunft";
-            this.Ankunft.Name = "Ankunft";
+            this.LV.AutoSize = true;
+            this.LV.Location = new System.Drawing.Point(20, 29);
+            this.LV.Name = "LV";
+            this.LV.Size = new System.Drawing.Size(26, 13);
+            this.LV.TabIndex = 11;
+            this.LV.Text = "Von";
             // 
-            // Gleis
+            // LN
             // 
-            this.Gleis.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Gleis.FillWeight = 1.982869F;
-            this.Gleis.HeaderText = "Gleis";
-            this.Gleis.Name = "Gleis";
+            this.LN.AutoSize = true;
+            this.LN.Location = new System.Drawing.Point(13, 55);
+            this.LN.Name = "LN";
+            this.LN.Size = new System.Drawing.Size(33, 13);
+            this.LN.TabIndex = 12;
+            this.LN.Text = "Nach";
+            // 
+            // RAB
+            // 
+            this.RAB.AutoSize = true;
+            this.RAB.Location = new System.Drawing.Point(362, 29);
+            this.RAB.Name = "RAB";
+            this.RAB.Size = new System.Drawing.Size(59, 17);
+            this.RAB.TabIndex = 13;
+            this.RAB.TabStop = true;
+            this.RAB.Text = "Abfahrt";
+            this.RAB.UseVisualStyleBackColor = true;
+            // 
+            // RAN
+            // 
+            this.RAN.AutoSize = true;
+            this.RAN.Location = new System.Drawing.Point(362, 50);
+            this.RAN.Name = "RAN";
+            this.RAN.Size = new System.Drawing.Size(62, 17);
+            this.RAN.TabIndex = 14;
+            this.RAN.TabStop = true;
+            this.RAN.Text = "Ankunft";
+            this.RAN.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -367,14 +459,15 @@
             this.Controls.Add(this.Schliessen);
             this.Controls.Add(this.btnA);
             this.Controls.Add(this.btnK);
-            this.Controls.Add(this.STG);
             this.Controls.Add(this.PV);
             this.Controls.Add(this.KAG);
+            this.Controls.Add(this.STG);
             this.Name = "Form1";
             this.Text = "ÖV";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.PV.ResumeLayout(false);
             this.VSG.ResumeLayout(false);
+            this.VSG.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).EndInit();
             this.STG.ResumeLayout(false);
             this.SSG.ResumeLayout(false);
@@ -393,8 +486,6 @@
         private System.Windows.Forms.DataGridView DGV;
         private System.Windows.Forms.Button btnReverse;
         private System.Windows.Forms.Button btnSuche;
-        private System.Windows.Forms.ComboBox txtVON;
-        private System.Windows.Forms.ComboBox txtNACH;
         private System.Windows.Forms.Button Schliessen;
         private System.Windows.Forms.GroupBox VSG;
         private System.Windows.Forms.Panel STG;
@@ -417,6 +508,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Abfahrt;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ankunft;
         private System.Windows.Forms.DataGridViewTextBoxColumn Gleis;
+        private System.Windows.Forms.ComboBox txtNACH;
+        private System.Windows.Forms.ComboBox txtVON;
+        private System.Windows.Forms.Label LN;
+        private System.Windows.Forms.Label LV;
+        private System.Windows.Forms.Label LZ;
+        private System.Windows.Forms.Label LD;
+        private System.Windows.Forms.DateTimePicker ZEIT;
+        private System.Windows.Forms.DateTimePicker DATUM;
+        private System.Windows.Forms.RadioButton RAN;
+        private System.Windows.Forms.RadioButton RAB;
     }
 }
 
