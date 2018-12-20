@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SwissTransport;
+using System.Net.Mail;
 
 namespace GUI
 {
@@ -204,6 +205,73 @@ namespace GUI
             {
                 txtKA.Items.Add(station.Name);
             }
+        }
+
+        private void btnMAIL_Click(object sender, EventArgs e)
+        {
+            if (txtMAIL.Text == "")
+                MessageBox.Show("Bitte geben Sie eine Email-Adresse ein!");
+            else
+            {
+                try
+                {
+                    MailMessage mail = new MailMessage();
+                    mail.From = new MailAddress("Martin64flex@gmail.com");
+                    mail.To.Add(new MailAddress(Convert.ToString(this.txtMAIL)));
+                    mail.Subject = "Fahrplan";
+                    mail.Body = "Hallo, hier ein Fahrplan, den ich mit dir teilen wollte. ";
+                    mail.Body += "<b>" + Get_TableFromDataGrid() + "</b>";
+                    mail.IsBodyHtml = true;
+                    SmtpClient SmtpServer = new SmtpClient();
+                    SmtpServer.Host = "smtp.gmail.com";
+                    SmtpServer.Port = 587;
+                    SmtpServer.Credentials = new System.Net.NetworkCredential("Martin64flex@gmail.com", "Martin17*");
+                    SmtpServer.EnableSsl = true;
+                    SmtpServer.Send(mail);
+                    MessageBox.Show("Email wurde erfolgreich gesendet");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+        public string Get_TableFromDataGrid()
+        {
+            StringBuilder strTable = new StringBuilder();
+            try
+            {
+                strTable.Append(("<table border='1 cellpadding='0' cellspacing='0'>"));
+                strTable.Append("<tr>");
+                foreach (DataGridViewColumn col in dtgverbindung.Columns)
+                {
+
+                    strTable.AppendFormat("<th>{0}</td>", col.HeaderText);
+                }
+
+                strTable.Append("</tr>");
+                for (int i = 0; i < dtgverbindung.RowCount; i++)
+                {
+                    strTable.Append("<tr>");
+                    foreach (DataGridViewCell cell in dtgverbindung.Rows[i].Cells)
+                    {
+                        if (cell.Value != null)
+                        {
+                            strTable.AppendFormat("<td>{0}</td>", cell.Value.ToString());
+                        }
+                    }
+
+                    strTable.Append("</tr>");
+                }
+
+                strTable.Append("</table>");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: + ex.Message");
+            }
+
+            return strTable.ToString();
         }
     }
 }

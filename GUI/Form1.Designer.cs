@@ -68,6 +68,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.btnMAIL = new System.Windows.Forms.Button();
+            this.txtMAIL = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.PV.SuspendLayout();
             this.VSG.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
@@ -103,13 +106,15 @@
             // 
             // PV
             // 
+            this.PV.Controls.Add(this.label1);
+            this.PV.Controls.Add(this.txtMAIL);
+            this.PV.Controls.Add(this.btnMAIL);
             this.PV.Controls.Add(this.VSG);
             this.PV.Controls.Add(this.DGV);
             this.PV.Location = new System.Drawing.Point(12, 12);
             this.PV.Name = "PV";
             this.PV.Size = new System.Drawing.Size(510, 506);
             this.PV.TabIndex = 2;
-            this.PV.Visible = false;
             // 
             // VSG
             // 
@@ -241,7 +246,7 @@
             this.DGV.Location = new System.Drawing.Point(3, 81);
             this.DGV.Name = "DGV";
             this.DGV.RowHeadersVisible = false;
-            this.DGV.Size = new System.Drawing.Size(504, 422);
+            this.DGV.Size = new System.Drawing.Size(504, 389);
             this.DGV.TabIndex = 4;
             this.DGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -325,7 +330,7 @@
             // txtSS
             // 
             this.txtSS.FormattingEnabled = true;
-            this.txtSS.Location = new System.Drawing.Point(59, 22);
+            this.txtSS.Location = new System.Drawing.Point(59, 24);
             this.txtSS.Name = "txtSS";
             this.txtSS.Size = new System.Drawing.Size(163, 21);
             this.txtSS.TabIndex = 1;
@@ -462,6 +467,32 @@
             this.pictureBox3.TabIndex = 14;
             this.pictureBox3.TabStop = false;
             // 
+            // btnMAIL
+            // 
+            this.btnMAIL.Location = new System.Drawing.Point(432, 476);
+            this.btnMAIL.Name = "btnMAIL";
+            this.btnMAIL.Size = new System.Drawing.Size(75, 23);
+            this.btnMAIL.TabIndex = 7;
+            this.btnMAIL.Text = "Abschicken";
+            this.btnMAIL.UseVisualStyleBackColor = true;
+            this.btnMAIL.Click += new System.EventHandler(this.btnMAIL_Click);
+            // 
+            // txtMAIL
+            // 
+            this.txtMAIL.Location = new System.Drawing.Point(296, 478);
+            this.txtMAIL.Name = "txtMAIL";
+            this.txtMAIL.Size = new System.Drawing.Size(130, 20);
+            this.txtMAIL.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(194, 481);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Per Mail Schicken:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -471,13 +502,14 @@
             this.Controls.Add(this.Schliessen);
             this.Controls.Add(this.btnA);
             this.Controls.Add(this.btnK);
-            this.Controls.Add(this.STG);
             this.Controls.Add(this.PV);
             this.Controls.Add(this.KAG);
+            this.Controls.Add(this.STG);
             this.Name = "Form1";
             this.Text = "ÖV";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.PV.ResumeLayout(false);
+            this.PV.PerformLayout();
             this.VSG.ResumeLayout(false);
             this.VSG.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).EndInit();
@@ -534,6 +566,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtMAIL;
+        private System.Windows.Forms.Button btnMAIL;
     }
 }
 
