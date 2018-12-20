@@ -70,7 +70,7 @@ namespace GUI
 
         private void btnSuche_Click(object sender, EventArgs e)
         {
-            Connections connections = tp.GetConnections(txtVON.Text, txtNACH.Text);
+            Connections connections = tp.GetConnections(txtVON.Text, txtNACH.Text, DATUM.Value.ToString(@"yyyy\-MM\-dd"), ZEIT.Value.ToString(@"HH\:mm"));
             DGV.Rows.Clear();
             foreach (Connection connection in connections.ConnectionList)
             {

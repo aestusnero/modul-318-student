@@ -6,13 +6,13 @@ namespace SwissTransport
     public class Connections
     {
         [JsonProperty("connections")]
-        public List<Connection> ConnectionList { get; set; } 
+        public List<Connection> ConnectionList { get; set; }
     }
 
     public class Connection
     {
         [JsonProperty("from")]
-        public ConnectionPoint From  { get; set; }
+        public ConnectionPoint From { get; set; }
 
         [JsonProperty("to")]
         public ConnectionPoint To { get; set; }

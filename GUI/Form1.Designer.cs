@@ -33,6 +33,12 @@
             this.btnA = new System.Windows.Forms.Button();
             this.PV = new System.Windows.Forms.Panel();
             this.VSG = new System.Windows.Forms.GroupBox();
+            this.LN = new System.Windows.Forms.Label();
+            this.LV = new System.Windows.Forms.Label();
+            this.LZ = new System.Windows.Forms.Label();
+            this.LD = new System.Windows.Forms.Label();
+            this.ZEIT = new System.Windows.Forms.DateTimePicker();
+            this.DATUM = new System.Windows.Forms.DateTimePicker();
             this.txtNACH = new System.Windows.Forms.ComboBox();
             this.txtVON = new System.Windows.Forms.ComboBox();
             this.btnSuche = new System.Windows.Forms.Button();
@@ -59,14 +65,9 @@
             this.txtKA = new System.Windows.Forms.ComboBox();
             this.btnKG = new System.Windows.Forms.Button();
             this.btnVB = new System.Windows.Forms.Button();
-            this.DATUM = new System.Windows.Forms.DateTimePicker();
-            this.ZEIT = new System.Windows.Forms.DateTimePicker();
-            this.LD = new System.Windows.Forms.Label();
-            this.LZ = new System.Windows.Forms.Label();
-            this.LV = new System.Windows.Forms.Label();
-            this.LN = new System.Windows.Forms.Label();
-            this.RAB = new System.Windows.Forms.RadioButton();
-            this.RAN = new System.Windows.Forms.RadioButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.PV.SuspendLayout();
             this.VSG.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
@@ -75,6 +76,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGS)).BeginInit();
             this.KAG.SuspendLayout();
             this.KGG.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // btnK
@@ -109,8 +113,7 @@
             // 
             // VSG
             // 
-            this.VSG.Controls.Add(this.RAN);
-            this.VSG.Controls.Add(this.RAB);
+            this.VSG.Controls.Add(this.pictureBox1);
             this.VSG.Controls.Add(this.LN);
             this.VSG.Controls.Add(this.LV);
             this.VSG.Controls.Add(this.LZ);
@@ -128,10 +131,65 @@
             this.VSG.TabStop = false;
             this.VSG.Text = "Verbindungen";
             // 
+            // LN
+            // 
+            this.LN.AutoSize = true;
+            this.LN.Location = new System.Drawing.Point(52, 50);
+            this.LN.Name = "LN";
+            this.LN.Size = new System.Drawing.Size(33, 13);
+            this.LN.TabIndex = 12;
+            this.LN.Text = "Nach";
+            // 
+            // LV
+            // 
+            this.LV.AutoSize = true;
+            this.LV.Location = new System.Drawing.Point(59, 21);
+            this.LV.Name = "LV";
+            this.LV.Size = new System.Drawing.Size(26, 13);
+            this.LV.TabIndex = 11;
+            this.LV.Text = "Von";
+            // 
+            // LZ
+            // 
+            this.LZ.AutoSize = true;
+            this.LZ.Location = new System.Drawing.Point(290, 52);
+            this.LZ.Name = "LZ";
+            this.LZ.Size = new System.Drawing.Size(25, 13);
+            this.LZ.TabIndex = 10;
+            this.LZ.Text = "Zeit";
+            // 
+            // LD
+            // 
+            this.LD.AutoSize = true;
+            this.LD.Location = new System.Drawing.Point(290, 24);
+            this.LD.Name = "LD";
+            this.LD.Size = new System.Drawing.Size(38, 13);
+            this.LD.TabIndex = 9;
+            this.LD.Text = "Datum";
+            // 
+            // ZEIT
+            // 
+            this.ZEIT.CustomFormat = "HH.mm";
+            this.ZEIT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.ZEIT.Location = new System.Drawing.Point(334, 52);
+            this.ZEIT.Name = "ZEIT";
+            this.ZEIT.ShowUpDown = true;
+            this.ZEIT.Size = new System.Drawing.Size(87, 20);
+            this.ZEIT.TabIndex = 8;
+            // 
+            // DATUM
+            // 
+            this.DATUM.CustomFormat = "dd.MM.yyyy";
+            this.DATUM.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DATUM.Location = new System.Drawing.Point(334, 22);
+            this.DATUM.Name = "DATUM";
+            this.DATUM.Size = new System.Drawing.Size(87, 20);
+            this.DATUM.TabIndex = 7;
+            // 
             // txtNACH
             // 
             this.txtNACH.FormattingEnabled = true;
-            this.txtNACH.Location = new System.Drawing.Point(52, 52);
+            this.txtNACH.Location = new System.Drawing.Point(91, 50);
             this.txtNACH.Name = "txtNACH";
             this.txtNACH.Size = new System.Drawing.Size(113, 21);
             this.txtNACH.TabIndex = 6;
@@ -140,7 +198,7 @@
             // txtVON
             // 
             this.txtVON.FormattingEnabled = true;
-            this.txtVON.Location = new System.Drawing.Point(52, 25);
+            this.txtVON.Location = new System.Drawing.Point(91, 21);
             this.txtVON.Name = "txtVON";
             this.txtVON.Size = new System.Drawing.Size(113, 21);
             this.txtVON.TabIndex = 5;
@@ -148,9 +206,9 @@
             // 
             // btnSuche
             // 
-            this.btnSuche.Location = new System.Drawing.Point(427, 23);
+            this.btnSuche.Location = new System.Drawing.Point(427, 22);
             this.btnSuche.Name = "btnSuche";
-            this.btnSuche.Size = new System.Drawing.Size(71, 49);
+            this.btnSuche.Size = new System.Drawing.Size(71, 51);
             this.btnSuche.TabIndex = 2;
             this.btnSuche.Text = "Verbindung Suchen";
             this.btnSuche.UseVisualStyleBackColor = true;
@@ -161,9 +219,9 @@
             this.btnReverse.BackColor = System.Drawing.Color.Transparent;
             this.btnReverse.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnReverse.BackgroundImage")));
             this.btnReverse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnReverse.Location = new System.Drawing.Point(171, 25);
+            this.btnReverse.Location = new System.Drawing.Point(210, 21);
             this.btnReverse.Name = "btnReverse";
-            this.btnReverse.Size = new System.Drawing.Size(48, 48);
+            this.btnReverse.Size = new System.Drawing.Size(48, 51);
             this.btnReverse.TabIndex = 4;
             this.btnReverse.UseCompatibleTextRendering = true;
             this.btnReverse.UseVisualStyleBackColor = true;
@@ -171,6 +229,7 @@
             // 
             // DGV
             // 
+            this.DGV.BackgroundColor = System.Drawing.SystemColors.Menu;
             this.DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Von,
@@ -253,6 +312,7 @@
             // 
             // SSG
             // 
+            this.SSG.Controls.Add(this.pictureBox3);
             this.SSG.Controls.Add(this.txtSS);
             this.SSG.Controls.Add(this.btnSS);
             this.SSG.Location = new System.Drawing.Point(3, 3);
@@ -265,7 +325,7 @@
             // txtSS
             // 
             this.txtSS.FormattingEnabled = true;
-            this.txtSS.Location = new System.Drawing.Point(6, 24);
+            this.txtSS.Location = new System.Drawing.Point(59, 22);
             this.txtSS.Name = "txtSS";
             this.txtSS.Size = new System.Drawing.Size(163, 21);
             this.txtSS.TabIndex = 1;
@@ -273,9 +333,9 @@
             // 
             // btnSS
             // 
-            this.btnSS.Location = new System.Drawing.Point(412, 24);
+            this.btnSS.Location = new System.Drawing.Point(412, 21);
             this.btnSS.Name = "btnSS";
-            this.btnSS.Size = new System.Drawing.Size(86, 48);
+            this.btnSS.Size = new System.Drawing.Size(86, 49);
             this.btnSS.TabIndex = 2;
             this.btnSS.Text = "Verbindungen Suchen";
             this.btnSS.UseVisualStyleBackColor = true;
@@ -283,6 +343,7 @@
             // 
             // DGS
             // 
+            this.DGS.BackgroundColor = System.Drawing.SystemColors.Menu;
             this.DGS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -335,6 +396,7 @@
             // 
             // KGG
             // 
+            this.KGG.Controls.Add(this.pictureBox2);
             this.KGG.Controls.Add(this.txtKA);
             this.KGG.Controls.Add(this.btnKG);
             this.KGG.Location = new System.Drawing.Point(3, 3);
@@ -347,7 +409,7 @@
             // txtKA
             // 
             this.txtKA.FormattingEnabled = true;
-            this.txtKA.Location = new System.Drawing.Point(6, 24);
+            this.txtKA.Location = new System.Drawing.Point(59, 23);
             this.txtKA.Name = "txtKA";
             this.txtKA.Size = new System.Drawing.Size(163, 21);
             this.txtKA.TabIndex = 1;
@@ -355,9 +417,9 @@
             // 
             // btnKG
             // 
-            this.btnKG.Location = new System.Drawing.Point(412, 24);
+            this.btnKG.Location = new System.Drawing.Point(412, 23);
             this.btnKG.Name = "btnKG";
-            this.btnKG.Size = new System.Drawing.Size(86, 48);
+            this.btnKG.Size = new System.Drawing.Size(86, 47);
             this.btnKG.TabIndex = 2;
             this.btnKG.Text = "Stationen Suchen";
             this.btnKG.UseVisualStyleBackColor = true;
@@ -373,82 +435,32 @@
             this.btnVB.UseVisualStyleBackColor = true;
             this.btnVB.Click += new System.EventHandler(this.btnVB_Click);
             // 
-            // DATUM
+            // pictureBox1
             // 
-            this.DATUM.CustomFormat = "dd.MM.yyyy";
-            this.DATUM.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DATUM.Location = new System.Drawing.Point(269, 23);
-            this.DATUM.Name = "DATUM";
-            this.DATUM.Size = new System.Drawing.Size(87, 20);
-            this.DATUM.TabIndex = 7;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(6, 23);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(47, 49);
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
             // 
-            // ZEIT
+            // pictureBox2
             // 
-            this.ZEIT.CustomFormat = "HH.mm";
-            this.ZEIT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ZEIT.Location = new System.Drawing.Point(269, 52);
-            this.ZEIT.Name = "ZEIT";
-            this.ZEIT.ShowUpDown = true;
-            this.ZEIT.Size = new System.Drawing.Size(87, 20);
-            this.ZEIT.TabIndex = 8;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(6, 23);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(47, 49);
+            this.pictureBox2.TabIndex = 14;
+            this.pictureBox2.TabStop = false;
             // 
-            // LD
+            // pictureBox3
             // 
-            this.LD.AutoSize = true;
-            this.LD.Location = new System.Drawing.Point(225, 27);
-            this.LD.Name = "LD";
-            this.LD.Size = new System.Drawing.Size(38, 13);
-            this.LD.TabIndex = 9;
-            this.LD.Text = "Datum";
-            // 
-            // LZ
-            // 
-            this.LZ.AutoSize = true;
-            this.LZ.Location = new System.Drawing.Point(238, 54);
-            this.LZ.Name = "LZ";
-            this.LZ.Size = new System.Drawing.Size(25, 13);
-            this.LZ.TabIndex = 10;
-            this.LZ.Text = "Zeit";
-            // 
-            // LV
-            // 
-            this.LV.AutoSize = true;
-            this.LV.Location = new System.Drawing.Point(20, 29);
-            this.LV.Name = "LV";
-            this.LV.Size = new System.Drawing.Size(26, 13);
-            this.LV.TabIndex = 11;
-            this.LV.Text = "Von";
-            // 
-            // LN
-            // 
-            this.LN.AutoSize = true;
-            this.LN.Location = new System.Drawing.Point(13, 55);
-            this.LN.Name = "LN";
-            this.LN.Size = new System.Drawing.Size(33, 13);
-            this.LN.TabIndex = 12;
-            this.LN.Text = "Nach";
-            // 
-            // RAB
-            // 
-            this.RAB.AutoSize = true;
-            this.RAB.Location = new System.Drawing.Point(362, 29);
-            this.RAB.Name = "RAB";
-            this.RAB.Size = new System.Drawing.Size(59, 17);
-            this.RAB.TabIndex = 13;
-            this.RAB.TabStop = true;
-            this.RAB.Text = "Abfahrt";
-            this.RAB.UseVisualStyleBackColor = true;
-            // 
-            // RAN
-            // 
-            this.RAN.AutoSize = true;
-            this.RAN.Location = new System.Drawing.Point(362, 50);
-            this.RAN.Name = "RAN";
-            this.RAN.Size = new System.Drawing.Size(62, 17);
-            this.RAN.TabIndex = 14;
-            this.RAN.TabStop = true;
-            this.RAN.Text = "Ankunft";
-            this.RAN.UseVisualStyleBackColor = true;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(6, 23);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(47, 49);
+            this.pictureBox3.TabIndex = 14;
+            this.pictureBox3.TabStop = false;
             // 
             // Form1
             // 
@@ -459,9 +471,9 @@
             this.Controls.Add(this.Schliessen);
             this.Controls.Add(this.btnA);
             this.Controls.Add(this.btnK);
+            this.Controls.Add(this.STG);
             this.Controls.Add(this.PV);
             this.Controls.Add(this.KAG);
-            this.Controls.Add(this.STG);
             this.Name = "Form1";
             this.Text = "ÖV";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -474,6 +486,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGS)).EndInit();
             this.KAG.ResumeLayout(false);
             this.KGG.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -516,8 +531,9 @@
         private System.Windows.Forms.Label LD;
         private System.Windows.Forms.DateTimePicker ZEIT;
         private System.Windows.Forms.DateTimePicker DATUM;
-        private System.Windows.Forms.RadioButton RAN;
-        private System.Windows.Forms.RadioButton RAB;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 
