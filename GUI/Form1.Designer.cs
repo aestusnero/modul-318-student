@@ -32,7 +32,11 @@
             this.btnK = new System.Windows.Forms.Button();
             this.btnA = new System.Windows.Forms.Button();
             this.PV = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtMAIL = new System.Windows.Forms.TextBox();
+            this.btnMAIL = new System.Windows.Forms.Button();
             this.VSG = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.LN = new System.Windows.Forms.Label();
             this.LV = new System.Windows.Forms.Label();
             this.LZ = new System.Windows.Forms.Label();
@@ -52,7 +56,11 @@
             this.Gleis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Schliessen = new System.Windows.Forms.Button();
             this.STG = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtmailS = new System.Windows.Forms.TextBox();
+            this.btnmailS = new System.Windows.Forms.Button();
             this.SSG = new System.Windows.Forms.GroupBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.txtSS = new System.Windows.Forms.ComboBox();
             this.btnSS = new System.Windows.Forms.Button();
             this.DGS = new System.Windows.Forms.DataGridView();
@@ -62,26 +70,21 @@
             this.KAG = new System.Windows.Forms.Panel();
             this.Karte = new System.Windows.Forms.WebBrowser();
             this.KGG = new System.Windows.Forms.GroupBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtKA = new System.Windows.Forms.ComboBox();
             this.btnKG = new System.Windows.Forms.Button();
             this.btnVB = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.btnMAIL = new System.Windows.Forms.Button();
-            this.txtMAIL = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.PV.SuspendLayout();
             this.VSG.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
             this.STG.SuspendLayout();
             this.SSG.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGS)).BeginInit();
             this.KAG.SuspendLayout();
             this.KGG.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // btnK
@@ -115,6 +118,33 @@
             this.PV.Name = "PV";
             this.PV.Size = new System.Drawing.Size(510, 506);
             this.PV.TabIndex = 2;
+            this.PV.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(194, 481);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Per Mail Schicken:";
+            // 
+            // txtMAIL
+            // 
+            this.txtMAIL.Location = new System.Drawing.Point(296, 478);
+            this.txtMAIL.Name = "txtMAIL";
+            this.txtMAIL.Size = new System.Drawing.Size(130, 20);
+            this.txtMAIL.TabIndex = 8;
+            // 
+            // btnMAIL
+            // 
+            this.btnMAIL.Location = new System.Drawing.Point(432, 476);
+            this.btnMAIL.Name = "btnMAIL";
+            this.btnMAIL.Size = new System.Drawing.Size(75, 23);
+            this.btnMAIL.TabIndex = 7;
+            this.btnMAIL.Text = "Abschicken";
+            this.btnMAIL.UseVisualStyleBackColor = true;
+            this.btnMAIL.Click += new System.EventHandler(this.btnMAIL_Click);
             // 
             // VSG
             // 
@@ -135,6 +165,15 @@
             this.VSG.TabIndex = 6;
             this.VSG.TabStop = false;
             this.VSG.Text = "Verbindungen";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(6, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(47, 49);
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
             // 
             // LN
             // 
@@ -157,7 +196,7 @@
             // LZ
             // 
             this.LZ.AutoSize = true;
-            this.LZ.Location = new System.Drawing.Point(290, 52);
+            this.LZ.Location = new System.Drawing.Point(288, 52);
             this.LZ.Name = "LZ";
             this.LZ.Size = new System.Drawing.Size(25, 13);
             this.LZ.TabIndex = 10;
@@ -166,7 +205,7 @@
             // LD
             // 
             this.LD.AutoSize = true;
-            this.LD.Location = new System.Drawing.Point(290, 24);
+            this.LD.Location = new System.Drawing.Point(275, 23);
             this.LD.Name = "LD";
             this.LD.Size = new System.Drawing.Size(38, 13);
             this.LD.TabIndex = 9;
@@ -176,7 +215,7 @@
             // 
             this.ZEIT.CustomFormat = "HH.mm";
             this.ZEIT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ZEIT.Location = new System.Drawing.Point(334, 52);
+            this.ZEIT.Location = new System.Drawing.Point(319, 52);
             this.ZEIT.Name = "ZEIT";
             this.ZEIT.ShowUpDown = true;
             this.ZEIT.Size = new System.Drawing.Size(87, 20);
@@ -186,7 +225,7 @@
             // 
             this.DATUM.CustomFormat = "dd.MM.yyyy";
             this.DATUM.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DATUM.Location = new System.Drawing.Point(334, 22);
+            this.DATUM.Location = new System.Drawing.Point(319, 24);
             this.DATUM.Name = "DATUM";
             this.DATUM.Size = new System.Drawing.Size(87, 20);
             this.DATUM.TabIndex = 7;
@@ -211,11 +250,11 @@
             // 
             // btnSuche
             // 
-            this.btnSuche.Location = new System.Drawing.Point(427, 22);
+            this.btnSuche.Location = new System.Drawing.Point(412, 24);
             this.btnSuche.Name = "btnSuche";
-            this.btnSuche.Size = new System.Drawing.Size(71, 51);
+            this.btnSuche.Size = new System.Drawing.Size(86, 48);
             this.btnSuche.TabIndex = 2;
-            this.btnSuche.Text = "Verbindung Suchen";
+            this.btnSuche.Text = "Verbindungen Suchen";
             this.btnSuche.UseVisualStyleBackColor = true;
             this.btnSuche.Click += new System.EventHandler(this.btnSuche_Click);
             // 
@@ -226,7 +265,7 @@
             this.btnReverse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnReverse.Location = new System.Drawing.Point(210, 21);
             this.btnReverse.Name = "btnReverse";
-            this.btnReverse.Size = new System.Drawing.Size(48, 51);
+            this.btnReverse.Size = new System.Drawing.Size(48, 49);
             this.btnReverse.TabIndex = 4;
             this.btnReverse.UseCompatibleTextRendering = true;
             this.btnReverse.UseVisualStyleBackColor = true;
@@ -243,12 +282,13 @@
             this.Abfahrt,
             this.Ankunft,
             this.Gleis});
+            this.DGV.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.DGV.Location = new System.Drawing.Point(3, 81);
             this.DGV.Name = "DGV";
+            this.DGV.ReadOnly = true;
             this.DGV.RowHeadersVisible = false;
             this.DGV.Size = new System.Drawing.Size(504, 389);
             this.DGV.TabIndex = 4;
-            this.DGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Von
             // 
@@ -256,6 +296,7 @@
             this.Von.FillWeight = 68.21066F;
             this.Von.HeaderText = "Von";
             this.Von.Name = "Von";
+            this.Von.ReadOnly = true;
             this.Von.Width = 150;
             // 
             // Nach
@@ -264,6 +305,7 @@
             this.Nach.FillWeight = 523.858F;
             this.Nach.HeaderText = "Nach";
             this.Nach.Name = "Nach";
+            this.Nach.ReadOnly = true;
             this.Nach.Width = 150;
             // 
             // Dauer
@@ -272,6 +314,7 @@
             this.Dauer.FillWeight = 1.982869F;
             this.Dauer.HeaderText = "Dauer";
             this.Dauer.Name = "Dauer";
+            this.Dauer.ReadOnly = true;
             // 
             // Abfahrt
             // 
@@ -279,6 +322,7 @@
             this.Abfahrt.FillWeight = 1.982869F;
             this.Abfahrt.HeaderText = "Abfahrt";
             this.Abfahrt.Name = "Abfahrt";
+            this.Abfahrt.ReadOnly = true;
             // 
             // Ankunft
             // 
@@ -286,6 +330,7 @@
             this.Ankunft.FillWeight = 1.982869F;
             this.Ankunft.HeaderText = "Ankunft";
             this.Ankunft.Name = "Ankunft";
+            this.Ankunft.ReadOnly = true;
             // 
             // Gleis
             // 
@@ -293,6 +338,7 @@
             this.Gleis.FillWeight = 1.982869F;
             this.Gleis.HeaderText = "Gleis";
             this.Gleis.Name = "Gleis";
+            this.Gleis.ReadOnly = true;
             // 
             // Schliessen
             // 
@@ -306,6 +352,9 @@
             // 
             // STG
             // 
+            this.STG.Controls.Add(this.label2);
+            this.STG.Controls.Add(this.txtmailS);
+            this.STG.Controls.Add(this.btnmailS);
             this.STG.Controls.Add(this.SSG);
             this.STG.Controls.Add(this.DGS);
             this.STG.Location = new System.Drawing.Point(12, 12);
@@ -314,6 +363,32 @@
             this.STG.TabIndex = 7;
             this.STG.Visible = false;
             this.STG.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(194, 481);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Per Mail Schicken:";
+            // 
+            // txtmailS
+            // 
+            this.txtmailS.Location = new System.Drawing.Point(296, 478);
+            this.txtmailS.Name = "txtmailS";
+            this.txtmailS.Size = new System.Drawing.Size(130, 20);
+            this.txtmailS.TabIndex = 10;
+            // 
+            // btnmailS
+            // 
+            this.btnmailS.Location = new System.Drawing.Point(432, 476);
+            this.btnmailS.Name = "btnmailS";
+            this.btnmailS.Size = new System.Drawing.Size(75, 23);
+            this.btnmailS.TabIndex = 9;
+            this.btnmailS.Text = "Abschicken";
+            this.btnmailS.UseVisualStyleBackColor = true;
+            this.btnmailS.Click += new System.EventHandler(this.btnmailS_Click);
             // 
             // SSG
             // 
@@ -327,10 +402,19 @@
             this.SSG.TabStop = false;
             this.SSG.Text = "Stationen";
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(6, 23);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(47, 49);
+            this.pictureBox3.TabIndex = 14;
+            this.pictureBox3.TabStop = false;
+            // 
             // txtSS
             // 
             this.txtSS.FormattingEnabled = true;
-            this.txtSS.Location = new System.Drawing.Point(59, 24);
+            this.txtSS.Location = new System.Drawing.Point(59, 22);
             this.txtSS.Name = "txtSS";
             this.txtSS.Size = new System.Drawing.Size(163, 21);
             this.txtSS.TabIndex = 1;
@@ -356,8 +440,9 @@
             this.dataGridViewTextBoxColumn2});
             this.DGS.Location = new System.Drawing.Point(3, 81);
             this.DGS.Name = "DGS";
+            this.DGS.ReadOnly = true;
             this.DGS.RowHeadersVisible = false;
-            this.DGS.Size = new System.Drawing.Size(504, 422);
+            this.DGS.Size = new System.Drawing.Size(504, 389);
             this.DGS.TabIndex = 8;
             // 
             // dataGridViewTextBoxColumn1
@@ -411,6 +496,15 @@
             this.KGG.TabStop = false;
             this.KGG.Text = "Ortschaften";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(6, 23);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(47, 49);
+            this.pictureBox2.TabIndex = 14;
+            this.pictureBox2.TabStop = false;
+            // 
             // txtKA
             // 
             this.txtKA.FormattingEnabled = true;
@@ -440,59 +534,6 @@
             this.btnVB.UseVisualStyleBackColor = true;
             this.btnVB.Click += new System.EventHandler(this.btnVB_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(6, 23);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(47, 49);
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(6, 23);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(47, 49);
-            this.pictureBox2.TabIndex = 14;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(6, 23);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(47, 49);
-            this.pictureBox3.TabIndex = 14;
-            this.pictureBox3.TabStop = false;
-            // 
-            // btnMAIL
-            // 
-            this.btnMAIL.Location = new System.Drawing.Point(432, 476);
-            this.btnMAIL.Name = "btnMAIL";
-            this.btnMAIL.Size = new System.Drawing.Size(75, 23);
-            this.btnMAIL.TabIndex = 7;
-            this.btnMAIL.Text = "Abschicken";
-            this.btnMAIL.UseVisualStyleBackColor = true;
-            this.btnMAIL.Click += new System.EventHandler(this.btnMAIL_Click);
-            // 
-            // txtMAIL
-            // 
-            this.txtMAIL.Location = new System.Drawing.Point(296, 478);
-            this.txtMAIL.Name = "txtMAIL";
-            this.txtMAIL.Size = new System.Drawing.Size(130, 20);
-            this.txtMAIL.TabIndex = 8;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(194, 481);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 13);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Per Mail Schicken:";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -505,6 +546,8 @@
             this.Controls.Add(this.PV);
             this.Controls.Add(this.KAG);
             this.Controls.Add(this.STG);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "ÖV";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -512,15 +555,16 @@
             this.PV.PerformLayout();
             this.VSG.ResumeLayout(false);
             this.VSG.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).EndInit();
             this.STG.ResumeLayout(false);
+            this.STG.PerformLayout();
             this.SSG.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGS)).EndInit();
             this.KAG.ResumeLayout(false);
             this.KGG.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -569,6 +613,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtMAIL;
         private System.Windows.Forms.Button btnMAIL;
+        private System.Windows.Forms.Button btnmailS;
+        private System.Windows.Forms.TextBox txtmailS;
+        private System.Windows.Forms.Label label2;
     }
 }
 

@@ -14,27 +14,18 @@ namespace GUI
 {
     public partial class Form1 : Form
     {
+        //definition tp
         Transport tp = new Transport();
         public Form1()
         {
             InitializeComponent();
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        //Seiten wechsel
         private void btnK_Click(object sender, EventArgs e)
         {
             PV.Visible = false;
             KAG.Visible = true;
             STG.Visible = false;
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -55,12 +46,12 @@ namespace GUI
             KAG.Visible = false;
             STG.Visible = true;
         }
-
+        // Schliessen
         private void Schliessen_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+        //VON-NACH wechsel
         private void btnReverse_Click(object sender, EventArgs e)
         {
             String old_from = txtVON.Text;
@@ -68,11 +59,11 @@ namespace GUI
             txtNACH.Text = old_from;//Umdrehung
         }
 
-
+        //Verbindung Suchen
         private void btnSuche_Click(object sender, EventArgs e)
         {
             Connections connections = tp.GetConnections(txtVON.Text, txtNACH.Text, DATUM.Value.ToString(@"yyyy\-MM\-dd"), ZEIT.Value.ToString(@"HH\:mm"));
-            DGV.Rows.Clear();
+            DGV.Rows.Clear();//Connection definieren
             foreach (Connection connection in connections.ConnectionList)
             {
 
@@ -93,10 +84,10 @@ namespace GUI
 
                 DGV.Columns[3].DefaultCellStyle.Format = "HH:mm";
                 DGV.Columns[4].DefaultCellStyle.Format = "HH:mm";
-            }
+            }//Grid anzeige
         }
 
-
+        //Station suchen
         private void btnSS_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtSS.Text))
@@ -105,7 +96,7 @@ namespace GUI
             var stationen = tp.GetStations(txtSS.Text).StationList;
             if (stationen.Count == 0)
             {
-                MessageBox.Show("Bitte geben Sie die gewünschte Station ein!", "Fehler");
+                MessageBox.Show("Fehler");
 
             }
 
@@ -130,17 +121,7 @@ namespace GUI
                 }
             }
         }
-
-        private void txtKA_DropDown(object sender, EventArgs e)
-        {
-            txtKA.Items.Clear();
-            Stations stations = tp.GetStations(txtKA.Text);
-            foreach (Station station in stations.StationList)
-            {
-                txtKA.Items.Add(station.Name);
-            }
-        }
-
+        //Map anzeigen
         private void btnKG_Click(object sender, EventArgs e)
         {
             var stationList = tp.GetStations(txtKA.Text).StationList;
@@ -151,62 +132,91 @@ namespace GUI
                 this.Karte.Navigate(googleUrl);
             }
         }
+        //Combobox VON
         private void txtVON_KeyUp(object sender, KeyEventArgs e)
         {
-            var selectionStart = txtVON.SelectionStart;
-            var selectionLength = txtVON.SelectedText.Length;
-            txtVON.Items.Clear();
-            txtVON.Select(selectionStart, selectionLength);
-            txtVON.DroppedDown = true;
-            Stations stations = tp.GetStations(txtVON.Text);
-            foreach (Station station in stations.StationList)
+            try
             {
-                txtVON.Items.Add(station.Name);
+                var selectionStart = txtVON.SelectionStart;
+                var selectionLength = txtVON.SelectedText.Length;
+                txtVON.Items.Clear();
+                txtVON.Select(selectionStart, selectionLength);
+                txtVON.DroppedDown = true;
+                Stations stations = tp.GetStations(txtVON.Text);
+                foreach (Station station in stations.StationList)
+                {
+                    txtVON.Items.Add(station.Name);
+                }
+            }
+            catch (Exception)
+            {
+
             }
         }
-
+        //Combobox NACH
         private void txtNACH_KeyUp(object sender, KeyEventArgs e)
         {
-            var selectionStart = txtNACH.SelectionStart;
-            var selectionLength = txtNACH.SelectedText.Length;
-            txtNACH.Items.Clear();
-            txtNACH.Select(selectionStart, selectionLength);
-            txtNACH.DroppedDown = true;
-            Stations stations = tp.GetStations(txtNACH.Text);
-            foreach (Station station in stations.StationList)
+            try
             {
-                txtNACH.Items.Add(station.Name);
+                var selectionStart = txtNACH.SelectionStart;
+                var selectionLength = txtNACH.SelectedText.Length;
+                txtNACH.Items.Clear();
+                txtNACH.Select(selectionStart, selectionLength);
+                txtNACH.DroppedDown = true;
+                Stations stations = tp.GetStations(txtNACH.Text);
+                foreach (Station station in stations.StationList)
+                {
+                    txtNACH.Items.Add(station.Name);
+                }
+            }
+            catch (Exception)
+            {
+
             }
         }
-
+        //Combobox Station suche
         private void txtSS_KeyUp(object sender, KeyEventArgs e)
         {
-            var selectionStart = txtSS.SelectionStart;
-            var selectionLength = txtSS.SelectedText.Length;
-            txtSS.Items.Clear();
-            txtSS.Select(selectionStart, selectionLength);
-            txtSS.DroppedDown = true;
-            Stations stations = tp.GetStations(txtSS.Text);
-            foreach (Station station in stations.StationList)
+            try
             {
-                txtSS.Items.Add(station.Name);
+                var selectionStart = txtSS.SelectionStart;
+                var selectionLength = txtSS.SelectedText.Length;
+                txtSS.Items.Clear();
+                txtSS.Select(selectionStart, selectionLength);
+                txtSS.DroppedDown = true;
+                Stations stations = tp.GetStations(txtSS.Text);
+                foreach (Station station in stations.StationList)
+                {
+                    txtSS.Items.Add(station.Name);
+                }
+            }
+            catch (Exception)
+            {
+
             }
         }
-
+        //Combobox Map suche
         private void txtKA_KeyUp(object sender, KeyEventArgs e)
         {
-            var selectionStart = txtKA.SelectionStart;
-            var selectionLength = txtKA.SelectedText.Length;
-            txtKA.Items.Clear();
-            txtKA.Select(selectionStart, selectionLength);
-            txtKA.DroppedDown = true;
-            Stations stations = tp.GetStations(txtKA.Text);
-            foreach (Station station in stations.StationList)
+            try
             {
-                txtKA.Items.Add(station.Name);
+                var selectionStart = txtKA.SelectionStart;
+                var selectionLength = txtKA.SelectedText.Length;
+                txtKA.Items.Clear();
+                txtKA.Select(selectionStart, selectionLength);
+                txtKA.DroppedDown = true;
+                Stations stations = tp.GetStations(txtKA.Text);
+                foreach (Station station in stations.StationList)
+                {
+                    txtKA.Items.Add(station.Name);
+                }
+            }
+            catch (Exception)
+            {
+
             }
         }
-
+        // Mail Verbindung
         private void btnMAIL_Click(object sender, EventArgs e)
         {
             if (txtMAIL.Text == "")
@@ -216,7 +226,7 @@ namespace GUI
                 try
                 {
                     MailMessage mail = new MailMessage();
-                    mail.From = new MailAddress("Martin64flex@gmail.com");
+                    mail.From = new MailAddress("projecterik233@gmail.com");
                     mail.To.Add(new MailAddress(Convert.ToString(this.txtMAIL)));
                     mail.Subject = "Fahrplan";
                     mail.Body = "Hallo, hier ein Fahrplan, den ich mit dir teilen wollte. ";
@@ -225,7 +235,7 @@ namespace GUI
                     SmtpClient SmtpServer = new SmtpClient();
                     SmtpServer.Host = "smtp.gmail.com";
                     SmtpServer.Port = 587;
-                    SmtpServer.Credentials = new System.Net.NetworkCredential("Martin64flex@gmail.com", "Martin17*");
+                    SmtpServer.Credentials = new System.Net.NetworkCredential("projecterik233.@gmail.com", "project233");
                     SmtpServer.EnableSsl = true;
                     SmtpServer.Send(mail);
                     MessageBox.Show("Email wurde erfolgreich gesendet");
@@ -236,6 +246,7 @@ namespace GUI
                 }
             }
         }
+        //Map Funktion 1
         public string Get_TableFromDataGrid()
         {
             StringBuilder strTable = new StringBuilder();
@@ -243,17 +254,17 @@ namespace GUI
             {
                 strTable.Append(("<table border='1 cellpadding='0' cellspacing='0'>"));
                 strTable.Append("<tr>");
-                foreach (DataGridViewColumn col in dtgverbindung.Columns)
+                foreach (DataGridViewColumn col in DGV.Columns)
                 {
 
                     strTable.AppendFormat("<th>{0}</td>", col.HeaderText);
                 }
 
                 strTable.Append("</tr>");
-                for (int i = 0; i < dtgverbindung.RowCount; i++)
+                for (int i = 0; i < DGV.RowCount; i++)
                 {
                     strTable.Append("<tr>");
-                    foreach (DataGridViewCell cell in dtgverbindung.Rows[i].Cells)
+                    foreach (DataGridViewCell cell in DGV.Rows[i].Cells)
                     {
                         if (cell.Value != null)
                         {
@@ -268,10 +279,85 @@ namespace GUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: + ex.Message");
+                MessageBox.Show("Error:" + ex.Message);
             }
 
             return strTable.ToString();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+ 
+        }
+        //Mail Station
+        private void btnmailS_Click(object sender, EventArgs e)
+        {
+            if (txtmailS.Text == "")
+                MessageBox.Show("Bitte geben Sie eine Email-Adresse ein!");
+            else
+            {
+                try
+                {
+                    MailMessage mail = new MailMessage();
+                    mail.From = new MailAddress("projecterik233@gmail.com");
+                    mail.To.Add(new MailAddress(Convert.ToString(this.txtmailS)));
+                    mail.Subject = "Fahrplan";
+                    mail.Body = "Hallo, hier ein Fahrplan, den ich mit dir teilen wollte. ";
+                    mail.Body += "<b>" + Get_TableFromDataGridS() + "</b>";
+                    mail.IsBodyHtml = true;
+                    SmtpClient SmtpServer = new SmtpClient();
+                    SmtpServer.Host = "smtp.gmail.com";
+                    SmtpServer.Port = 587;
+                    SmtpServer.Credentials = new System.Net.NetworkCredential("projecterik233.@gmail.com", "project233");
+                    SmtpServer.EnableSsl = true;
+                    SmtpServer.Send(mail);
+                    MessageBox.Show("Email wurde erfolgreich gesendet");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+        //Map Funktion 2
+        public string Get_TableFromDataGridS()
+        {
+            StringBuilder strTable = new StringBuilder();
+            try
+            {
+                strTable.Append(("<table border='1 cellpadding='0' cellspacing='0'>"));
+                strTable.Append("<tr>");
+                foreach (DataGridViewColumn col in DGS.Columns)
+                {
+
+                    strTable.AppendFormat("<th>{0}</td>", col.HeaderText);
+                }
+
+                strTable.Append("</tr>");
+                for (int i = 0; i < DGS.RowCount; i++)
+                {
+                    strTable.Append("<tr>");
+                    foreach (DataGridViewCell cell in DGS.Rows[i].Cells)
+                    {
+                        if (cell.Value != null)
+                        {
+                            strTable.AppendFormat("<td>{0}</td>", cell.Value.ToString());
+                        }
+                    }
+
+                    strTable.Append("</tr>");
+                }
+
+                strTable.Append("</table>");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:" + ex.Message);
+            }
+
+            return strTable.ToString();
+        }
+
+
     }
 }
