@@ -97,7 +97,6 @@ namespace GUI
             if (stationen.Count == 0)
             {
                 MessageBox.Show("Fehler");
-
             }
 
             else
@@ -118,7 +117,7 @@ namespace GUI
                     row.Cells[2].Value = station.To;
                     DGS.Rows.Add(row);
                     DGS.Columns[1].DefaultCellStyle.Format = "HH:mm";
-                }
+                }//Grid Station
             }
         }
         //Map anzeigen
@@ -129,7 +128,7 @@ namespace GUI
             {
                 var coordinates = stationList[0].Coordinate;
                 string googleUrl = "https://www.google.ch/maps/?q=loc:" + coordinates.XCoordinate + "+" + coordinates.YCoordinate;
-                this.Karte.Navigate(googleUrl);
+                this.Karte.Navigate(googleUrl);//verbindung Google
             }
         }
         //Combobox VON
@@ -141,7 +140,7 @@ namespace GUI
                 var selectionLength = txtVON.SelectedText.Length;
                 txtVON.Items.Clear();
                 txtVON.Select(selectionStart, selectionLength);
-                txtVON.DroppedDown = true;
+                txtVON.DroppedDown = true;//Dropdown Öffnen
                 Stations stations = tp.GetStations(txtVON.Text);
                 foreach (Station station in stations.StationList)
                 {
@@ -162,7 +161,7 @@ namespace GUI
                 var selectionLength = txtNACH.SelectedText.Length;
                 txtNACH.Items.Clear();
                 txtNACH.Select(selectionStart, selectionLength);
-                txtNACH.DroppedDown = true;
+                txtNACH.DroppedDown = true;//Dropdown Öffnen
                 Stations stations = tp.GetStations(txtNACH.Text);
                 foreach (Station station in stations.StationList)
                 {
@@ -183,7 +182,7 @@ namespace GUI
                 var selectionLength = txtSS.SelectedText.Length;
                 txtSS.Items.Clear();
                 txtSS.Select(selectionStart, selectionLength);
-                txtSS.DroppedDown = true;
+                txtSS.DroppedDown = true;//Dropdown Öffnen
                 Stations stations = tp.GetStations(txtSS.Text);
                 foreach (Station station in stations.StationList)
                 {
@@ -204,7 +203,7 @@ namespace GUI
                 var selectionLength = txtKA.SelectedText.Length;
                 txtKA.Items.Clear();
                 txtKA.Select(selectionStart, selectionLength);
-                txtKA.DroppedDown = true;
+                txtKA.DroppedDown = true;//Dropdown Öffnen
                 Stations stations = tp.GetStations(txtKA.Text);
                 foreach (Station station in stations.StationList)
                 {
@@ -239,7 +238,7 @@ namespace GUI
                     SmtpServer.EnableSsl = true;
                     SmtpServer.Send(mail);
                     MessageBox.Show("Email wurde erfolgreich gesendet");
-                }
+                }//Mail body
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error: " + ex.Message);
